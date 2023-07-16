@@ -1,3 +1,4 @@
+import { GameControlComponent } from './../game-control/game-control.component';
 import {
   Component,
   OnInit,
@@ -31,10 +32,11 @@ export class ServerElementComponent implements
   AfterViewInit,
   AfterViewChecked,
   OnDestroy {
-  @Input('srvElement') element: {type: string, name: string, content: string};
-  @Input() name: string;
-  @ViewChild('heading', {static: true}) header: ElementRef;
-  @ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
+  @Input('srvElement') element: { type: string, name: string, content: string } = { type: '', name: '',content:''};
+  @Input() name: string = '';
+  @ViewChild('heading', {static: true}) header!: ElementRef;
+  @ContentChild('contentParagraph', { static: true }) paragraph!: ElementRef;
+
 
   constructor() {
     console.log('constructor called!');
